@@ -1,0 +1,116 @@
+<body>
+    <main class="content">
+        <div class="keys" name="main">
+            <div class="key " id="q" name="q">q</div>
+            <div class="key" id="k" name="w">k</div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+            <div class="key"></div>
+        </div>
+        <div class="music-collection">
+        <div class="music" ><audio src="1.mp3" song="one" class="song"  id="one"></audio></div>
+        <div class="music" ><audio src="2.mp3" song="two"  id="two"></audio></div>
+    </div>
+    </main>
+</body>
+<style>
+    .content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid black;
+        width: 1600px;
+        height: 780px;
+        background: url('bg.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    .keys{
+        height: 80px;
+        width: 100%;
+        border: 1px solid red;
+        display: flex;
+        justify-content: space-between;
+    }
+    .key{
+        height: 80px;
+        border: 1px solid black;
+        background: blue;
+        width: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        color: burlywood;
+        font-size: 24px;
+        box-shadow: 4px 2px 10px 2px grey;
+        
+    }
+    .active{
+        background: coral;
+    }
+</style>
+<script>
+    let key=document.querySelectorAll('.key');
+    let music=document.querySelectorAll('.music');
+    let song=document.querySelectorAll('.song');
+    //let key=document.querySelector('.key');
+    let q=document.getElementById('q');
+    let k=document.getElementById('k');
+    let one=document.getElementById('one');
+    let two=document.getElementById('two');
+    document.addEventListener('keydown',play);
+    function play(event) {
+        //console.log(event.key);
+        key.forEach(el=>{if(el.getAttribute('name')==event.key){
+            console.log(true);
+            console.log(key[0])
+            }
+        })
+        song.forEach(el=>{
+            let mus=el.getAttribute('song');
+            console.log(song[0].getAttribute('song'));
+            song[0].play()
+            
+
+        })
+    }
+    
+    /*function play(event,el) {
+        if(event.key=='q'){
+            console.log('work');
+            q.classList.add('active');
+            one.play();
+           // console.log(q.getAttribute('name'))
+        }
+        else if(event.key=='k'){
+            console.log('new');
+            k.classList.add('active');
+            two.play();
+        }
+        if(event.key==q.getAttribute('name')){
+            console.log(true)
+        }
+    }
+    document.addEventListener('keyup',stop);
+    function stop(event) {
+        if(event.key=='q'){
+            q.classList.remove('active');
+            one.pause();
+        }
+        if(event.key=='k'){
+            k.classList.remove('active');
+            two.pause();
+        }
+    }
+    function gets(e,elem) {
+        if(e.key==elem.getAttribute('name')){
+            console.log(true);
+        }
+    }*/
+    
+</script>
